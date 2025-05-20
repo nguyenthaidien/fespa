@@ -1,0 +1,14 @@
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+button.mat-icon-button {
+  margin-left: 8px; /* Add spacing from the edge if needed */
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

@@ -1,0 +1,28 @@
+stages:
+  - build
+  - deploy
+variables:
+  release_ver: "diennt"
+before_script:  #// Câu lệnh dùng để đăng nhập vào Container Registry trên Gitlab
+  #- docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - docker info
+  - pwd
+  - echo $release_ver
+  - echo 1 | sudo tee /proc/sys/vm/drop_caches
+image-build:
+  # select the most appropriate image for your project
+  stage: build
+  script:
+    - docker login -u nguyenthaidien -p dckr_pat_l_m4CCbTXMvKg5VE22hH8nCcfEA
+    #- docker system prune
+    - DOCKER_BUILDKIT=0 docker build . --file ./dcms/Dockerfile --tag nguyenthaidien/fespa:latest --no-cache  --build-arg CACHE_TS=$(date +%s)    
+    - docker push nguyenthaidien/fespa:latest
+deploy-code:
+  #
+  stage: deploy
+  script:
+  - cd /opt/dcms/
+  - pwd
+  - docker compose pull
+  - docker compose up -d
+  - exit
