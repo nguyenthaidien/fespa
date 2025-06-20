@@ -5,10 +5,10 @@
     <span class="app-title">QUẢN LÝ DOANH THU CHI PHÍ HẠ TẦNG</span>
     <span class="spacer"></span>
     <span class="app-caption">Nguyễn Thái Diễn - IT00900</span>
-    <!-- <div class="developer-status">
-      <h1>Keycloak Events:{{ keycloakStatus }}</h1> -->
-      <!-- <h1>Keycloak token:{{ keycloakToken }}</h1>  -->
-    <!-- </div> -->
+    <div class="developer-status">
+      <h1>Keycloak Events:{{ keycloakStatus }}</h1> 
+      <h1>Keycloak token:{{ keycloakToken }}</h1>  
+     </div> 
     @if (!authenticated) {
       <button class="action-item" (click)="login()">Login</button>
     } @else {
