@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import Keycloak from 'keycloak-js';
 import {
   HasRolesDirective,
@@ -11,6 +12,10 @@ import {
   typeEventArgs,
   ReadyArgs
 } from 'keycloak-angular';
+import { TranslateService } from '@ngx-translate/core'; // thay bằng đúng path
+
+
+
 
 @Component({
   selector: 'app-header',
@@ -36,13 +41,7 @@ export class HeaderComponent {
   iconRegistry: any;
   sanitizer: any;
 
-  constructor() {
-    // this.iconRegistry.addSvgIcon(
-    //   'custom_icon',
-    //   //https://fonts.google.com/icons?form=MG0AV3&selected=Material+Symbols+Outlined:home:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%231f1f1f
-    //   this.sanitizer.bypassSecurityTrustResourceUrl('assets/home-icon.svg')
-    // );
-
+  constructor(private translate: TranslateService) {
     effect(() => {
       const keycloakEvent = this.keycloakSignal();
       const keycloakXXX = this.keycloak;
@@ -58,9 +57,13 @@ export class HeaderComponent {
     });
   }
 
+  switchLanguage(lang: 'vi' | 'en') {
+    this.translate.use(lang);
+  }
+
+
   login() {
     this.keycloak.login();
-    //this.keycloak.token?.valueOf
   }
 
   logout() {

@@ -1,0 +1,6 @@
+{
+  "app.hello": "hello {{value}}",
+  "app.title": "Translation Demo",
+  "WELCOME": "Xin chao",
+  "LANGUAGE": "Tiếng Việt"
+}

@@ -1,13 +1,19 @@
 import { Component, effect, inject } from '@angular/core';
-import { HeaderComponent } from "./shared/header/header.component";
-import { LeftMenuComponent } from "./shared/left-menu/left-menu.component";
-import { MainContentComponent } from "./shared/main-content/main-content.component";
-import { FooterComponent } from "./shared/footer/footer.component";
-/* import { KEYCLOAK_EVENT_SIGNAL, KeycloakEventType, ReadyArgs, typeEventArgs } from 'keycloak-angular';
-import Keycloak from 'keycloak-js'; */
+import { HeaderComponent } from "./layout/header/header.component";
+import { LeftMenuComponent } from "./layout/left-menu/left-menu.component";
+import { MainContentComponent } from "./layout/main-content/main-content.component";
+import { FooterComponent } from "./layout/footer/footer.component";
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from  '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
+
+import {
+    TranslateService,
+    TranslatePipe,
+    TranslateDirective
+} from "@ngx-translate/core";
+
 
 @Component({
   selector: 'app-root',
@@ -18,21 +24,22 @@ import { MatTreeModule } from '@angular/material/tree';
     FooterComponent,
     MatToolbarModule,
     MatButtonModule,
-    MatTreeModule],
+    MatTreeModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent  {
   title = 'angular-router-sample';
-  // treeControl = new NestedTreeControl<MenuNode>(node => node.children);
-  // dataSource = new MatTreeNestedDataSource<MenuNode>();
+    private translate = inject(TranslateService);
 
-  // constructor() {
-  //   this.dataSource.data = TREE_DATA;
-  // }
-
-  // hasChild = (_: number, node: MenuNode) => !!node.children && node.children.length > 0;
-
+    constructor() {
+        this.translate.addLangs(['vi', 'en']);
+        this.translate.setFallbackLang('en');
+        this.translate.use('en');
+    }
 }
+
+
 
 

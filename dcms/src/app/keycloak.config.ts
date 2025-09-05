@@ -22,9 +22,6 @@ import {
   export const provideKeycloakAngular = () =>
     provideKeycloak({
       config: {
-  /*       url: 'http://10.82.14.80:8080',
-        realm: 'DCMSDEV-Realm',
-        clientId: 'spring-gateway-client' */
         url: environment.keycloak.url,
         realm: environment.keycloak.realm,
         clientId: environment.keycloak.clientId,
@@ -48,32 +45,5 @@ import {
           useValue: [localhostCondition]
         }]
     });
-  
-  /* export const provideKeycloakAngular = () =>
-    provideKeycloak({
-      config: {
-        realm: 'keycloak-angular-sandbox',
-        url: 'http://localhost:8080',
-        clientId: 'keycloak-angular'
-      },
-      initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
-        redirectUri: window.location.origin + '/'
-      },
-      features: [
-        withAutoRefreshToken({
-          onInactivityTimeout: 'logout',
-          sessionTimeout: 60000
-        })
-      ],
-      providers: [
-        AutoRefreshTokenService,
-        UserActivityService,
-        {
-          provide: INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
-          useValue: [localhostCondition]
-        }
-      ]
-    }); */
+
   
