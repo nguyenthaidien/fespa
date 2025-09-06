@@ -1,10 +1,26 @@
-<div class="layout-container">
-    <app-header></app-header>
-    <div class="container">
-      <app-left-menu></app-left-menu>
-        <div class="main-wrapper">
+<mat-sidenav-container class="app-container">
+  <!-- Sidebar -->
+   <mat-sidenav #sidenav mode="side" 
+        [opened]="isSidebarOpen" 
+        [style.width.px]="sidebarWidth"
+        class="app-sidenav"  >
+
+        <app-left-menu></app-left-menu>
+
+    </mat-sidenav> 
+
+  <!-- Main content -->
+  <mat-sidenav-content class="app-sidenav-content">
+    <app-header (toggleSidebar)="toggleSidebar()" 
+      [sidebarOpen]="isSidebarOpen"
+      [sidebarWidth]="sidebarWidth"
+     ></app-header>
+    <div class="main-layout">
+        <div class="app-main-content" >
             <app-main-content></app-main-content>
-            <app-footer></app-footer>
         </div>
+        <app-footer></app-footer>
     </div>
-</div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

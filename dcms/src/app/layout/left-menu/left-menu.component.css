@@ -1,3 +1,9 @@
+:host {
+  display: block;
+  background-color: cyan;
+  padding: 16px;
+}
+
 .padding-top {
   padding-top: 48px;
 }

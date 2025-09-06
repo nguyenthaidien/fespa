@@ -1,5 +1,14 @@
 <header>
-  <mat-toolbar color="primary">
+   <mat-toolbar 
+   color="primary"
+   class="app-header"
+    [style.width.px]="sidebarOpen ? 'calc(100% - ' + sidebarWidth + 'px)' : '100%'"
+   >
+  <button mat-icon-button aria-label="Toggle sidebar"  (click)="toggleSidebar.emit()">
+    <mat-icon>menu</mat-icon>
+  </button> 
+
+
     <!-- //Material Icons Integration: Easily use Google's Material Icons. -->
     <mat-icon>home</mat-icon>
     <span class="app-company">Công ty ABC</span>
@@ -21,7 +30,7 @@
   <mat-divider [vertical]="true" inset="true"></mat-divider>
 
 <!-- Nút thông báo -->
-  <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+ <!--  <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
     <mat-icon
       matBadge="{{notificationCount}}"
       matBadgeColor="warn"
@@ -29,10 +38,10 @@
     >
       notifications
     </mat-icon>
-  </button>
+  </button> -->
 
   <!-- Menu thông báo -->
-  <mat-menu #notificationMenu="matMenu">
+<!--   <mat-menu #notificationMenu="matMenu">
     <ng-container *ngIf="notifications.length > 0; else noNoti">
       <button mat-menu-item *ngFor="let noti of notifications">
         <mat-icon color="accent">notification_important</mat-icon>
@@ -44,7 +53,7 @@
         <span>Không có thông báo mới</span>
       </button>
     </ng-template>
-  </mat-menu>
+  </mat-menu> -->
 
 
 

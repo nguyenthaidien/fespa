@@ -1,4 +1,4 @@
-import { Component, OnInit, effect, inject } from '@angular/core';
+import { Component, Input,Output, effect, inject,EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,7 +28,6 @@ import {
 
 
 
-
 @Component({
   selector: 'app-header',
   imports: [
@@ -46,8 +45,7 @@ import {
 
 
 
-export class HeaderComponent implements OnInit
-{
+export class HeaderComponent {
 
   authenticated = true;
   keycloakStatus: string | undefined;
@@ -56,8 +54,13 @@ export class HeaderComponent implements OnInit
   private readonly keycloakSignal = inject(KEYCLOAK_EVENT_SIGNAL);
   iconRegistry: any;
   sanitizer: any;
+  @Input() sidebarOpen = true;
+  @Input() sidebarWidth = 250;
 
 
+  @Output() toggleSidebar  = new EventEmitter<void>();
+
+  notificationCount = 3; // Số lượng thông báo chưa đọc (ví dụ tĩnh)
   constructor(private translate: TranslateService, private http: HttpClient) {
     effect(() => {
       const keycloakEvent = this.keycloakSignal();
@@ -73,6 +76,9 @@ export class HeaderComponent implements OnInit
       }
     });
     //translate.setTranslation('vi', {});
+
+
+
 
   }
 
@@ -90,21 +96,6 @@ export class HeaderComponent implements OnInit
     this.keycloak.logout();
   }
   
-  notifications: any[] = [];
-  notificationCount: number = 0;
 
-
-  ngOnInit(): void {
-    this.fetchNotifications();
-  }
-  fetchNotifications(): void {
-    this.http.get<any[]>('https://your-api.com/api/notifications')
-      .subscribe(data => {
-        this.notifications = data.filter(n => n.isNew);
-        this.notificationCount = this.notifications.length;
-      }, error => {
-        console.error('Lỗi khi lấy thông báo:', error);
-      });
-  }
 
 }
