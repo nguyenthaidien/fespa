@@ -2,31 +2,94 @@
   <mat-toolbar color="primary">
     <!-- //Material Icons Integration: Easily use Google's Material Icons. -->
     <mat-icon>home</mat-icon>
-    <span class="app-title">QUẢN LÝ DOANH THU CHI PHÍ HẠ TẦNG</span>
+    <span class="app-company">Công ty ABC</span>
     <span class="spacer"></span>
-    <span class="app-caption">Nguyễn Thái Diễn - IT00900</span>
-
+    <span class="app-caption">QUẢN LÝ HẠ TẦNG CÔNG NGHỆ THÔNG TIN</span>
+ <span class="spacer"></span>
       <!-- Language Button -->
-<!--     <button mat-icon-button [matMenuTriggerFor]="langMenu" aria-label="Language">
-      <mat-icon>language</mat-icon>
-    </button> -->
+    <button mat-icon-button [matMenuTriggerFor]="langMenu" aria-label="Language" class="aria-label">
+      <mat-icon>language</mat-icon> {{ 'LANGUAGE' | translate }}
+    </button> 
 
     <!-- Language Menu -->
-<!--     <mat-menu #langMenu="matMenu">
+     <mat-menu #langMenu="matMenu">
       <button mat-menu-item (click)="switchLanguage('vi')">🇻🇳 Tiếng Việt</button>
       <button mat-menu-item (click)="switchLanguage('en')">🇺🇸 English</button>
-    </mat-menu> -->
+    </mat-menu> 
+
+  <!-- Divider dọc -->
+  <mat-divider [vertical]="true" inset="true"></mat-divider>
+
+<!-- Nút thông báo -->
+  <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+    <mat-icon
+      matBadge="{{notificationCount}}"
+      matBadgeColor="warn"
+      matBadgeHidden="{{notificationCount === 0}}"
+    >
+      notifications
+    </mat-icon>
+  </button>
+
+  <!-- Menu thông báo -->
+  <mat-menu #notificationMenu="matMenu">
+    <ng-container *ngIf="notifications.length > 0; else noNoti">
+      <button mat-menu-item *ngFor="let noti of notifications">
+        <mat-icon color="accent">notification_important</mat-icon>
+        <span>{{ noti.title }}</span>
+      </button>
+    </ng-container>
+    <ng-template #noNoti>
+      <button mat-menu-item disabled>
+        <span>Không có thông báo mới</span>
+      </button>
+    </ng-template>
+  </mat-menu>
 
 
-<!--     <div class="developer-status">
-      <h1>Keycloak Events:{{ keycloakStatus }}</h1> 
-      <h1>Keycloak token:{{ keycloakToken }}</h1>  
-     </div>  -->
-    @if (!authenticated) {
+
+
+
+
+  <!-- Nút Profile -->
+  <button mat-button [matMenuTriggerFor]="profileMenu">
+    <mat-icon>account_circle</mat-icon>
+    Profile
+  </button>
+
+  <!-- Menu Profile -->
+  <mat-menu #profileMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item>
+      <mat-icon>build</mat-icon>
+      <span>Chức năng 1</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Chức năng 2</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+
+
+<!--     @if (!authenticated) {
       <button class="action-item" (click)="login()">Login</button>
     } @else {
       <button class="action-item" (click)="logout()">Logout</button>
-    }
+    } -->
   </mat-toolbar>
  
 </header>

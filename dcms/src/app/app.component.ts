@@ -8,16 +8,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from  '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
 
-import {
-    TranslateService,
-    TranslatePipe,
-    TranslateDirective
-} from "@ngx-translate/core";
+import { TranslateService } from "@ngx-translate/core";
 
 
 @Component({
   selector: 'app-root',
-  //standalone: true,
+  standalone: true,
   imports: [ HeaderComponent, 
     LeftMenuComponent, 
     MainContentComponent, 
@@ -31,13 +27,11 @@ import {
 })
 export class AppComponent  {
   title = 'angular-router-sample';
-    private translate = inject(TranslateService);
-
-    constructor() {
-        this.translate.addLangs(['vi', 'en']);
-        this.translate.setFallbackLang('en');
-        this.translate.use('en');
+  constructor(private translate: TranslateService) {
+      translate.use('en');
     }
+
+
 }
 
 

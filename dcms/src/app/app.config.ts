@@ -21,13 +21,13 @@ import {provideTranslateHttpLoader} from "@ngx-translate/http-loader";
       provideKeycloakAngular(),
       provideHttpClient(withInterceptors([includeBearerTokenInterceptor])), 
       provideZoneChangeDetection({ eventCoalescing: true }),
-      provideRouter(routes),
+      provideRouter(routes), 
       provideTranslateService({
-            loader: provideTranslateHttpLoader({
-              prefix: './i18n/',
-              suffix: '.json'
-            }),
-            fallbackLang: 'en'
+        loader: provideTranslateHttpLoader({
+          prefix: './i18n/',
+          suffix: '.json'
+        }),
+        fallbackLang: 'en'
       })
     ]
   };
