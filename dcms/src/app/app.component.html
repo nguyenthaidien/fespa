@@ -1,26 +1,32 @@
-<mat-sidenav-container class="app-container">
-  <!-- Sidebar -->
-   <mat-sidenav #sidenav mode="side" 
-        [opened]="isSidebarOpen" 
-        [style.width.px]="sidebarWidth"
-        class="app-sidenav"  >
+<mat-sidenav-container class="dcms-container">
+  <!-- Left Menu -->
+  <mat-sidenav #sidenav mode="side" [(opened)]="isSidebarOpen" class="dcms-sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/users">Users</a>
+      <a mat-list-item routerLink="/settings">Settings</a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-        <app-left-menu></app-left-menu>
-
-    </mat-sidenav> 
-
-  <!-- Main content -->
-  <mat-sidenav-content class="app-sidenav-content">
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <!-- Header -->
+    <header class="dcms-header">
     <app-header (toggleSidebar)="toggleSidebar()" 
       [sidebarOpen]="isSidebarOpen"
       [sidebarWidth]="sidebarWidth"
+      class="app-header"
      ></app-header>
-    <div class="main-layout">
-        <div class="app-main-content" >
-            <app-main-content></app-main-content>
-        </div>
-        <app-footer></app-footer>
-    </div>
-  </mat-sidenav-content>
+    </header>
 
+    <!-- Main Content -->
+    <main class="dcms-main">
+      <app-main-content></app-main-content>
+    </main>
+
+    <!-- Footer -->
+    <footer class="dcms-footer">
+      <app-footer></app-footer>
+    </footer>
+  </mat-sidenav-content>
 </mat-sidenav-container>

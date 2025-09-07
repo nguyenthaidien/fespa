@@ -1,30 +1,37 @@
-
-.app-sidenav {
-  background-color: #f5f5f5;
-  position: relative;
+.dcms-container {
   height: 100vh;
 }
 
-.app-sidenav.closed {
-  width: 0;
-  overflow: hidden;
-  transition: width 0.3s ease;
+.dcms-sidenav {
+  width: 220px;
+  background-color: #f5f5f5;
 }
 
-
-.app-header {
-  width: 100%;
-  height: 64px;
+.dcms-header {
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  box-sizing: border-box;
+  background-color: #3f51b5;
+  color: white;
+  padding: 0px 0px;
 }
 
-.main-layout {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 64px); // trừ header
+.dcms-header mat-icon {
+  margin-right: 16px;
 }
 
+.app-header  {
+  flex: 1;
+}
 
+.dcms-main {
+  padding: 24px;
+  min-height: calc(100vh - 120px); /* header + footer height */
+  background-color: #fafafa;
+}
+
+.dcms-footer {
+  background-color: #eeeeee;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.9rem;
+}
