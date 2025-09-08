@@ -2,6 +2,12 @@ import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/cor
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+
+
 
 interface FoodNode {
   name: string;
@@ -96,7 +102,7 @@ const EXAMPLE_DATA: FoodNode[] = [
 @Component({
   selector: 'app-left-menu',
   imports: [    
-    MatTreeModule, MatButtonModule, MatIconModule
+    MatTreeModule, MatButtonModule, MatIconModule,MatToolbarModule, MatFormFieldModule, MatInputModule, FormsModule
   ],
   templateUrl: './left-menu.component.html',
   styleUrl: './left-menu.component.css',
@@ -106,10 +112,23 @@ const EXAMPLE_DATA: FoodNode[] = [
 export class LeftMenuComponent {
   dataSource = EXAMPLE_DATA;
   //dataSource =  'menu-data.json';
+  companyName = 'Công ty TNHH DCMS';
+  //Search box
+   searchQuery: string = '';
+  onSearch() {
+    if (this.searchQuery.trim()) {
+      console.log('Tìm kiếm:', this.searchQuery);
+      // TODO: Gọi API hoặc lọc dữ liệu tại đây
+    }
+  }
 
   childrenAccessor = (node: FoodNode) => node.children ?? [];
-
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+
+
+
+
+
 
 }
 
