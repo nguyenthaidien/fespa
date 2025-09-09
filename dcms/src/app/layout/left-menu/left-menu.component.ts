@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import Keycloak from 'keycloak-js';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 
 
@@ -107,7 +108,14 @@ const EXAMPLE_DATA: FoodNode[] = [
 @Component({
   selector: 'app-left-menu',
   imports: [
-    MatTreeModule, MatButtonModule, MatIconModule, MatToolbarModule, MatFormFieldModule, MatInputModule, FormsModule
+    MatTreeModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatToolbarModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    FormsModule,
+    TranslatePipe
   ],
   templateUrl: './left-menu.component.html',
   styleUrl: './left-menu.component.scss',

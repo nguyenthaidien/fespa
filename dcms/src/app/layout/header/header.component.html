@@ -64,14 +64,14 @@
   <!-- Nút Profile -->
   <button mat-button [matMenuTriggerFor]="profileMenu" aria-label="Tài khoản người dùng">
     <mat-icon>account_circle</mat-icon>
-    <span>Profile</span>
+    <span>{{ 'PROFILE' | translate }}</span>
   </button>
 
   <!-- Menu Profile -->
   <mat-menu #profileMenu="matMenu">
     <button mat-menu-item>
       <mat-icon>person</mat-icon>
-      <span>Profile</span>
+      <span>{{ 'PROFILE' | translate }}</span>
     </button>
 
     <mat-divider></mat-divider>
@@ -89,7 +89,7 @@
 
     <button mat-menu-item (click)="logout()">
       <mat-icon color="warn">logout</mat-icon>
-      <span>Logout</span>
+      <span>{{ 'LOGOUT' | translate }}</span>
     </button>
   </mat-menu>
   </mat-toolbar>

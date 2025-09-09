@@ -3,9 +3,12 @@
   "app.title": "Translation Demo",
   "WELCOME": "WELCOME",
   "LANGUAGE": "English",
+  "LOGOUT": "Logout",
+  "PROFILE": "Profile",
   "CHANGE_LANGUAGE": "Change Language",
   "CHANGE_THEME": "Change Theme",
   "SITEMAP": "Sitemap",
   "BACKTOHOME": "Back to Home",
-  "toggleSidebar": "Toggle sidebar"
+  "toggleSidebar": "Toggle sidebar",
+  "VERSION": "Version"
 }
