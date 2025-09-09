@@ -110,7 +110,7 @@ const EXAMPLE_DATA: FoodNode[] = [
     MatTreeModule, MatButtonModule, MatIconModule, MatToolbarModule, MatFormFieldModule, MatInputModule, FormsModule
   ],
   templateUrl: './left-menu.component.html',
-  styleUrl: './left-menu.component.css',
+  styleUrl: './left-menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

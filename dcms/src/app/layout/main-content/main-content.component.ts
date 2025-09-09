@@ -6,7 +6,7 @@ import {TranslatePipe, TranslateDirective} from "@ngx-translate/core";
   selector: 'app-main-content',
   imports: [RouterOutlet, TranslatePipe ],
   templateUrl: './main-content.component.html',
-  styleUrl: './main-content.component.css'
+  styleUrl: './main-content.component.scss'
 })
 export class MainContentComponent {
 

@@ -4,7 +4,7 @@ import { BookService } from '../services/book.service';
   selector: 'app-crisis-list',
   imports: [],
   templateUrl: './crisis-list.component.html',
-  styleUrl: './crisis-list.component.css'
+  styleUrl: './crisis-list.component.scss'
 })
 export class CrisisListComponent implements OnInit {
   ngOnInit(): void {

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-heroes-list',
   imports: [],
   templateUrl: './heroes-list.component.html',
-  styleUrl: './heroes-list.component.css'
+  styleUrl: './heroes-list.component.scss'
 })
 export class HeroesListComponent {
 

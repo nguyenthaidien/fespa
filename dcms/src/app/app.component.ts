@@ -30,7 +30,7 @@ import { RouterOutlet } from "@angular/router"; // Import MatSidenavModule
     RouterOutlet
 ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent  {
   title = 'angular-router-sample';

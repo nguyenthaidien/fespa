@@ -5,6 +5,6 @@ import { RouterModule } from '@angular/router';
   selector: 'app-forbidden',
   imports: [RouterModule],
   templateUrl: './forbidden.component.html',
-  styleUrls: ['./forbidden.component.css']
+  styleUrls: ['./forbidden.component.scss']
 })
 export class ForbiddenComponent {}
