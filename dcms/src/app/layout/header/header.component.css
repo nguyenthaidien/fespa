@@ -1,3 +1,12 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1;
+}
 
 
 
@@ -8,14 +17,13 @@
 }
 
 
-.spacer {
-  flex: 1 1 auto;
-}
 
-.mat-icon-button {
-  margin-right: 8px;
-  font-size: smaller;
-} 
-.aria-label {
-  font-size:x-small;
-} 
+
+.divider {
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background-color: #ccc;
+  margin: 0 8px;
+  vertical-align: middle;
+}

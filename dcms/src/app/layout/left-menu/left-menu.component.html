@@ -1,5 +1,8 @@
 <mat-toolbar color="primary" class="company-name-box">
-  <span>{{ companyName }}</span>
+
+  <!-- <span>{{ companyName }}</span> -->
+  <span>LINE CĐSCN DAS</span>
+
 </mat-toolbar>
 
 <mat-toolbar color="primary" class="search-box">
@@ -12,18 +15,17 @@
   </mat-form-field>
 </mat-toolbar>
 
- <div class="tree-container">
 
 
   <mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor" class="mat-tree-cdk-tree">
     <!-- This is the tree node template for leaf nodes -->
-    <mat-tree-node class="custom-tree-node" *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="8">
+    <mat-tree-node class="custom-tree-node" *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="12">
       <!-- use a disabled button to provide padding for tree leaf -->
       <button mat-icon-button disabled></button>
       <a  class="app-menutext" href={{node.url}}>{{node.name}}</a> 
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
-    <mat-tree-node class="mat-tree-node" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="8" matTreeNodeToggle
+    <mat-tree-node class="mat-tree-node" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="12" matTreeNodeToggle
                   [cdkTreeNodeTypeaheadLabel]="node.name">
       <button mat-icon-button matTreeNodeToggle
               [attr.aria-label]="'Toggle ' + node.name">
@@ -34,7 +36,17 @@
       {{node.name}}
     </mat-tree-node>
   </mat-tree>
+
+
+
+
+<div class="sidebar-footer">
+  <span class="version-text">Version 1.0.0</span>
+  <button mat-button color="warn" (click)="logout()" >Logout</button>
+
+
+
+
 </div>
 
-
-
+  <!-- <button mat-button color="warn" (click)="logout()">Logout</button> -->

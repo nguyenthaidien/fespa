@@ -2,5 +2,10 @@
   "app.hello": "hello {{value}}",
   "app.title": "Translation Demo",
   "WELCOME": "WELCOME",
-  "LANGUAGE": "English"
+  "LANGUAGE": "English",
+  "CHANGE_LANGUAGE": "Change Language",
+  "CHANGE_THEME": "Change Theme",
+  "SITEMAP": "Sitemap",
+  "BACKTOHOME": "Back to Home",
+  "toggleSidebar": "Toggle sidebar"
 }

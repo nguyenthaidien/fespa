@@ -4,3 +4,9 @@
     font-size: small;
     color: #030303;
   }
+
+  :host {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+

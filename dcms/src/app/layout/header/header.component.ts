@@ -5,7 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import  { MatBadge} from '@angular/material/badge';
+import  { MatBadge } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 //
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
@@ -38,6 +39,7 @@ import {
     MatMenuModule,
     MatDividerModule,
     MatBadge,
+    MatTooltipModule,
     TranslatePipe  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -46,6 +48,8 @@ import {
 
 
 export class HeaderComponent {
+ // tooltipText: string = 'Trang chủ';
+ // tooltipText: string = 'Trang chủ';
 
   authenticated = true;
   keycloakStatus: string | undefined;
@@ -77,6 +81,11 @@ export class HeaderComponent {
     });
     //translate.setTranslation('vi', {});
 
+    const savedTheme = localStorage.getItem('selectedTheme');
+    if (savedTheme) {
+      document.body.classList.add(savedTheme);
+    }
+
 
 
 
@@ -96,6 +105,14 @@ export class HeaderComponent {
     this.keycloak.logout();
   }
   
+  switchTheme(themeName: string) {
+    const body = document.body;
+    body.classList.remove('light-theme', 'dark-theme', 'blue-theme');
+    body.classList.add(themeName);
+    localStorage.setItem('selectedTheme', themeName);
+  }
+
+
 
 
 }

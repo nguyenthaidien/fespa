@@ -1,69 +1,70 @@
 <header>
-   <mat-toolbar 
-   color="primary"
-   class="app-header"
-    [style.width.px]="sidebarOpen ? 'calc(100% - ' + sidebarWidth + 'px)' : '100%'"
-   >
-  <button mat-icon-button aria-label="Toggle sidebar"  (click)="toggleSidebar.emit()">
+   <mat-toolbar   color="primary"
+    [style.width.px]="sidebarOpen ? 'calc(100% - ' + sidebarWidth + 'px)' : '100%'" >
+
+  <!-- Nút mở/đóng sidebar -->
+  <button mat-icon-button aria-label="Toggle sidebar"  (click)="toggleSidebar.emit()" [matTooltip]=" 'toggleSidebar' | translate ">
     <mat-icon>menu</mat-icon>
   </button> 
 
 
     <!-- //Material Icons Integration: Easily use Google's Material Icons. -->
-    <mat-icon>home</mat-icon>
-    <span class="app-company">Công ty ABC</span>
-    <span class="spacer"></span>
+    <mat-icon [routerLink]="['/']" [matTooltip]=" 'BACKTOHOME' | translate ">home</mat-icon>
+  
+    <span class="app-company">Quản lý hạ tầng</span>
+  
     <span class="app-caption">QUẢN LÝ HẠ TẦNG CÔNG NGHỆ THÔNG TIN</span>
+ 
  <span class="spacer"></span>
-      <!-- Language Button -->
-    <button mat-icon-button [matMenuTriggerFor]="langMenu" aria-label="Language" class="aria-label">
-      <mat-icon>language</mat-icon> {{ 'LANGUAGE' | translate }}
-    </button> 
 
+   <!-- Các mục menu khác -->
+  <a mat-list-item routerLink="/sitemap">
+    <mat-icon matListIcon  [matTooltip]=" 'SITEMAP' | translate ">map</mat-icon>
+  </a>
+   <span class="divider"></span>
+      <!-- Language Button -->
+    <button mat-icon-button [matMenuTriggerFor]="langMenu" aria-label="Language" class="langMenu">
+      <mat-icon [matTooltip]=" 'CHANGE_LANGUAGE' | translate ">language</mat-icon> 
+    </button> 
     <!-- Language Menu -->
      <mat-menu #langMenu="matMenu">
       <button mat-menu-item (click)="switchLanguage('vi')">🇻🇳 Tiếng Việt</button>
       <button mat-menu-item (click)="switchLanguage('en')">🇺🇸 English</button>
     </mat-menu> 
 
-  <!-- Divider dọc -->
-  <mat-divider [vertical]="true" inset="true"></mat-divider>
 
-<!-- Nút thông báo -->
- <!--  <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
-    <mat-icon
-      matBadge="{{notificationCount}}"
-      matBadgeColor="warn"
-      matBadgeHidden="{{notificationCount === 0}}"
-    >
-      notifications
-    </mat-icon>
-  </button> -->
+  <span class="divider"></span>
 
-  <!-- Menu thông báo -->
-<!--   <mat-menu #notificationMenu="matMenu">
-    <ng-container *ngIf="notifications.length > 0; else noNoti">
-      <button mat-menu-item *ngFor="let noti of notifications">
-        <mat-icon color="accent">notification_important</mat-icon>
-        <span>{{ noti.title }}</span>
-      </button>
-    </ng-container>
-    <ng-template #noNoti>
-      <button mat-menu-item disabled>
-        <span>Không có thông báo mới</span>
-      </button>
-    </ng-template>
-  </mat-menu> -->
+  <!-- Nút mở menu chọn theme -->
+  <button mat-icon-button [matMenuTriggerFor]="themeMenu" >
+    <mat-icon matTooltip=" {{'CHANGE_THEME' | translate }}">palette</mat-icon>
+  </button>
+
+  <!-- Menu chọn theme -->
+  <mat-menu #themeMenu="matMenu">
+    <button mat-menu-item (click)="switchTheme('light-theme')">
+      <mat-icon>light_mode</mat-icon>
+      <span>Giao diện sáng</span>
+    </button>
+    <button mat-menu-item (click)="switchTheme('dark-theme')">
+      <mat-icon>dark_mode</mat-icon>
+      <span>Giao diện tối</span>
+    </button>
+    <button mat-menu-item (click)="switchTheme('blue-theme')">
+      <mat-icon>invert_colors</mat-icon>
+      <span>Giao diện xanh</span>
+    </button>
+  </mat-menu>
 
 
-
+  <span class="divider"></span>
 
 
 
   <!-- Nút Profile -->
-  <button mat-button [matMenuTriggerFor]="profileMenu">
+  <button mat-button [matMenuTriggerFor]="profileMenu" aria-label="Tài khoản người dùng">
     <mat-icon>account_circle</mat-icon>
-    Profile
+    <span>Profile</span>
   </button>
 
   <!-- Menu Profile -->
@@ -87,18 +88,10 @@
     <mat-divider></mat-divider>
 
     <button mat-menu-item (click)="logout()">
-      <mat-icon>logout</mat-icon>
+      <mat-icon color="warn">logout</mat-icon>
       <span>Logout</span>
     </button>
   </mat-menu>
-
-
-
-<!--     @if (!authenticated) {
-      <button class="action-item" (click)="login()">Login</button>
-    } @else {
-      <button class="action-item" (click)="logout()">Logout</button>
-    } -->
   </mat-toolbar>
  
 </header>

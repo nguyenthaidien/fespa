@@ -16,3 +16,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight:bold;
     font-size:small;
   }
+
+  .light-theme {
+  --primary-color: #1976d2;
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+.dark-theme {
+  --primary-color: #90caf9;
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+.blue-theme {
+  --primary-color: #2196f3;
+  --background-color: #e3f2fd;
+  --text-color: #0d47a1;
+}

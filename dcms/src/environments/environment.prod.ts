@@ -1,5 +1,6 @@
 // environment.prod.ts (Production)
 export const environment = {
+    version: '1.0.0',
     production: true,
     apiUrl: 'http://10.82.14.80:9090/api',
     featureFlag: false,
