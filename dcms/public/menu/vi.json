@@ -1,0 +1,32 @@
+ [ 
+    {
+        "name": "Trang chủ",
+        "url": "/",
+        "function_role": "dashboard"
+    },
+    {
+        "name": "Chi phí - sản lượng hạ tầng",
+        "url": "/hatang",
+        "function_role": "hatang",
+        "children": 
+        [
+            {      
+            "name": "Hạ tầng ảo hóa",
+            "function_role": "hatang",
+            "children": [
+                {"name": "Hạ tầng VM","url": "/hatang/vm","function_role": "hatang"}, 
+                {"name": "Hạ tầng NFS","url": "/hatang/nfs","function_role": "hatang"},
+                {"name": "Hạ tầng Backup-archive","url": "/hatang/backup","function_role": "hatang"},
+                {"name": "áp sau hỏng"
+                  ,"url": "/hatang/backup"
+                  ,"function_role": "hatang"
+                  ,"children": [
+                      {"name": "Email doanh nghiệp"},
+                      {"name": "Office 365"}
+                    ]
+                }
+            ]
+          }
+        ]
+    }
+  ]

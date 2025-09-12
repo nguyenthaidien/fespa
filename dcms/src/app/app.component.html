@@ -4,26 +4,20 @@
     <app-left-menu></app-left-menu>
   </mat-sidenav>
 
-
-
-
-
-  <!-- Main Content -->
+  <!-- Page Content -->
   <mat-sidenav-content>
     <!-- Header -->
     <header class="dcms-header">
-    <app-header (toggleSidebar)="toggleSidebar()" 
-      [sidebarOpen]="isSidebarOpen"
-      [sidebarWidth]="sidebarWidth"
-      class="app-header"
-     ></app-header>
+      <app-header (toggleSidebar)="toggleSidebar()" 
+          [sidebarOpen]="isSidebarOpen"
+          [sidebarWidth]="sidebarWidth"
+          class="app-header"
+      ></app-header>
     </header>
-
-    <!-- Main Content -->
+    <!--Content -->
     <main class="dcms-main">
       <app-main-content></app-main-content>
     </main>
-
     <!-- Footer -->
     <footer class="dcms-footer">
       <app-footer></app-footer>

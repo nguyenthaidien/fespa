@@ -1,27 +1,38 @@
 <header>
-   <mat-toolbar   color="primary"
+   <mat-toolbar  color="primary" class="header-toolbar"
     [style.width.px]="sidebarOpen ? 'calc(100% - ' + sidebarWidth + 'px)' : '100%'" >
-
-  <!-- Nút mở/đóng sidebar -->
-  <button mat-icon-button aria-label="Toggle sidebar"  (click)="toggleSidebar.emit()" [matTooltip]=" 'toggleSidebar' | translate ">
+    <!-- Nút mở/đóng sidebar -->
+    <button class="toggleSidebar" mat-icon-button aria-label="Toggle sidebar"  (click)="toggleSidebar.emit()" [matTooltip]=" 'toggleSidebar' | translate ">
     <mat-icon>menu</mat-icon>
   </button> 
 
 
     <!-- //Material Icons Integration: Easily use Google's Material Icons. -->
-    <mat-icon [routerLink]="['/']" [matTooltip]=" 'BACKTOHOME' | translate ">home</mat-icon>
+    <mat-icon [routerLink]="['/']" [matTooltip]=" 'BACKTOHOME' | translate " class="backtohome-icon">home</mat-icon>
   
-    <span class="app-company">Quản lý hạ tầng</span>
+    <span class="app-name">Quản lý hạ tầng</span>
+     <span class="divider"></span>
   
-    <span class="app-caption">QUẢN LÝ HẠ TẦNG CÔNG NGHỆ THÔNG TIN</span>
+  <mat-toolbar color="primary" class="header-title-toolbar" fxLayout="column">
+  <!-- Hàng trên -->
+  <div class="toolbar-row">
+    <span class="header-title">DOANH THU CHI PHÍ HẠ TẦNG</span>
+  </div>
+  <!-- Hàng dưới -->
+  <div class="toolbar-row">
+    <!-- <span class="header-subtitle">Cập nhật máy chủ</span> -->
+    <span class="header-subtitle">{{ currentUrl() }}</span>
+  </div>
+</mat-toolbar>
  
  <span class="spacer"></span>
+ <span class="divider"></span>
 
    <!-- Các mục menu khác -->
   <a mat-list-item routerLink="/sitemap">
     <mat-icon matListIcon  [matTooltip]=" 'SITEMAP' | translate ">map</mat-icon>
   </a>
-   <span class="divider"></span>
+   <!-- <span class="divider"></span> -->
       <!-- Language Button -->
     <button mat-icon-button [matMenuTriggerFor]="langMenu" aria-label="Language" class="langMenu">
       <mat-icon [matTooltip]=" 'CHANGE_LANGUAGE' | translate ">language</mat-icon> 
@@ -32,8 +43,8 @@
       <button mat-menu-item (click)="switchLanguage('en')">🇺🇸 English</button>
     </mat-menu> 
 
-
-  <span class="divider"></span>
+<!-- 
+  <span class="divider"></span> -->
 
   <!-- Nút mở menu chọn theme -->
   <button mat-icon-button [matMenuTriggerFor]="themeMenu" >
@@ -42,6 +53,10 @@
 
   <!-- Menu chọn theme -->
   <mat-menu #themeMenu="matMenu">
+    <button mat-menu-item (click)="switchTheme('vnpt-theme')">
+      <mat-icon>stars</mat-icon>
+      <span>Giao diện VNPT</span>
+    </button>
     <button mat-menu-item (click)="switchTheme('light-theme')">
       <mat-icon>light_mode</mat-icon>
       <span>Giao diện sáng</span>
@@ -56,22 +71,25 @@
     </button>
   </mat-menu>
 
+  <!-- [matMenuTriggerFor]="notificationMenu" -->
+  <button mat-icon-button [matBadge]="notificationCount" matBadgeColor="warn" matBadgeOverlap="true"  
+    aria-label="Notifications" >
+      <mat-icon class="notification-icon">notifications</mat-icon>
+  </button>
+
 
   <span class="divider"></span>
-
-
-
   <!-- Nút Profile -->
   <button mat-button [matMenuTriggerFor]="profileMenu" aria-label="Tài khoản người dùng">
     <mat-icon>account_circle</mat-icon>
-    <span>{{ 'PROFILE' | translate }}</span>
+    <span>Profile</span>
   </button>
 
   <!-- Menu Profile -->
   <mat-menu #profileMenu="matMenu">
     <button mat-menu-item>
       <mat-icon>person</mat-icon>
-      <span>{{ 'PROFILE' | translate }}</span>
+      <span>Profile</span>
     </button>
 
     <mat-divider></mat-divider>
@@ -88,8 +106,8 @@
     <mat-divider></mat-divider>
 
     <button mat-menu-item (click)="logout()">
-      <mat-icon color="warn">logout</mat-icon>
-      <span>{{ 'LOGOUT' | translate }}</span>
+      <mat-icon color="warn"></mat-icon>
+      <span>{{ "LOGOUT" | translate }}</span>
     </button>
   </mat-menu>
   </mat-toolbar>

@@ -1,7 +1,9 @@
+
 <mat-toolbar color="primary" class="company-name-box">
 
   <!-- <span>{{ companyName }}</span> -->
-  <span>LINE CĐSCN DAS</span>
+  <span class="company-name">TT Giải pháp hành chính số</span>
+    <span class="line-name">Line CĐS chuyên ngành</span>
 
 </mat-toolbar>
 
@@ -15,14 +17,14 @@
   </mat-form-field>
 </mat-toolbar>
 
-
-
   <mat-tree #tree [dataSource]="dataSource" [childrenAccessor]="childrenAccessor" class="mat-tree-cdk-tree">
     <!-- This is the tree node template for leaf nodes -->
-    <mat-tree-node class="custom-tree-node" *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="12">
-      <!-- use a disabled button to provide padding for tree leaf -->
-      <button mat-icon-button disabled></button>
-      <a  class="app-menutext" href={{node.url}}>{{node.name}}</a> 
+    <mat-tree-node class="custom-tree-node" *matTreeNodeDef="let node" matTreeNodePadding [matTreeNodePaddingIndent]="12"
+
+      >
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        <a  class="app-menutext" href={{node.url}}>{{node.name}}</a> 
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node class="mat-tree-node" *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding [matTreeNodePaddingIndent]="12" matTreeNodeToggle
@@ -38,11 +40,9 @@
   </mat-tree>
 
 
-<!-- " 'BACKTOHOME' | translate " -->
-
 <div class="sidebar-footer">
-  <span class="version-text">{{ 'VERSION' | translate }} 1.0.01</span>
-  <button mat-button color="warn" (click)="logout()">{{ 'LOGOUT' | translate }}</button>
-</div>
 
-  <!-- <button mat-button color="warn" (click)="logout()">Logout</button> -->
+  <button mat-button color="warn" (click)="logout()" class="logout-button">{{ "LOGOUT" | translate }}</button>
+  <span class="version-text">Version 1.0.0</span>
+  <span class="theme-name">{{ currentTheme }}</span>
+</div>

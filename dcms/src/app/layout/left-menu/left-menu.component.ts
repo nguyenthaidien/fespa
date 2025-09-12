@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component,  inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Output, inject,EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment'; // Adjust the path as needed
 import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
@@ -9,113 +9,23 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import Keycloak from 'keycloak-js';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
+import menuData_en from '../../../../public/menu/en.json';
+import menuData_vi from '../../../../public/menu/vi.json';
+import { signal } from '@angular/core';
 
-
-
-interface FoodNode {
+interface menuData {
   name: string;
   url?: string;  // Optional URL for nodes
   function_role?: string;  // Optional client_role for nodes
-  children?: FoodNode[];
+  children?: menuData[];
 }
-
-const EXAMPLE_DATA: FoodNode[] = [
-  {
-    name: 'Trang chủ',
-    url: '/',
-    function_role: 'dashboard',
-  },
-  {
-    name: 'Chi phí - sản lượng hạ tầng',
-    url: '/hatang',
-    function_role: 'hatang',
-    children: [
-      {
-        name: 'Hạ tầng ảo hóa',
-        function_role: 'hatang',
-        children: [
-          {name: 'Hạ tầng VM',url: '/hatang/vm', function_role: 'hatang'}, 
-          {name: 'Hạ tầng NFS',url: '/hatang/nfs', function_role: 'hatang'},
-          {name: 'Hạ tầng Backup-archive',url: '/hatang/backup', function_role: 'hatang'},
-          {name: 'áp sau hỏng'
-            ,url: '/hatang/backup'
-            , function_role: 'hatang'
-            ,children: [
-              {name: 'Email doanh nghiệp'},
-              {name: 'Office 365'}
-            ],
-          },
-        ],
-       },
-       {
-         name: 'Hạ tầng IDG',
-         children: [
-           {name: 'K8S tenant'}, 
-           {name: 'K8S dedicated'},
-           {name: 'Object Storage'},
-           {name: 'Kafka'},
-           {name: 'RabbitMQ'},
-           {name: 'Redis'},
-           {name: 'Logging'},
-           {name: 'Search Engine'} 
-          ],
-        },
-        {
-          name: 'Sản lượng QTVH ',
-          children: [
-            {name: 'Email doanh nghiệp'},
-            {name: 'Office 365'}
-          ],
-        },
-    ]
-  },
-  
-  {
-    name: 'Công việc thường xuyên',
-    children: [
-      {name: 'Nhu cầu hạ tầng'},
-      {name: 'Tối ưu tài nguyên'}
-    ],
-  },
-  
-  {
-    name: 'Báo cáo hạ tầng',
-    children: [
-      {
-        name: 'Chi tiết theo SPDV',
-        url: '/',
-        function_role: 'hatang',
-      },
-      {
-        name: 'Tổng hợp chi phí hạ tầng',
-      }
-    ],
-  },
-  {
-     name: 'Quản trị hệ thống',
-     children: [
-       {
-         name: 'Thông tin người dùng',
-       },
-       {
-         name: 'Cài đặt tham số sử dụng',
-       }
-     ],
-  },
-];
-
+const EXAMPLE_DATA: menuData[] = [];
 
 @Component({
   selector: 'app-left-menu',
   imports: [
-    MatTreeModule, 
-    MatButtonModule, 
-    MatIconModule, 
-    MatToolbarModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
-    FormsModule,
-    TranslatePipe
+    MatTreeModule, MatButtonModule, MatIconModule, MatToolbarModule
+    , MatFormFieldModule, MatInputModule, FormsModule, TranslatePipe
   ],
   templateUrl: './left-menu.component.html',
   styleUrl: './left-menu.component.scss',
@@ -128,12 +38,26 @@ export class LeftMenuComponent {
   dataSource = EXAMPLE_DATA;
   //dataSource =  'menu-data.json';
   companyName = 'Công ty TNHH DCMS';
-
   appVersion = environment.version;
-
+  currentTheme = localStorage.getItem('selectedTheme') || 'light-theme';
+  private translate = inject(TranslateService);
+  constructor() {
+    this.translate.onLangChange.subscribe(() => this.refreshTree(this.translate.currentLang));
+  }
+  
+  refreshTree(lang: string) {
+    if (lang === 'vi') {
+    // Logic for Vietnamese
+      this.dataSource = menuData_vi;
+    } else if (lang === 'en') {
+    // Logic for English
+      this.dataSource = menuData_en;
+    } ;
+    
+  }
 
   //Search box
-   searchQuery: string = '';
+  searchQuery: string = '';
   onSearch() {
     if (this.searchQuery.trim()) {
       console.log('Tìm kiếm:', this.searchQuery);
@@ -141,8 +65,8 @@ export class LeftMenuComponent {
     }
   }
 
-  childrenAccessor = (node: FoodNode) => node.children ?? [];
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+  childrenAccessor = (node: menuData) => node.children ?? [];
+  hasChild = (_: number, node: menuData) => !!node.children && node.children.length > 0;
 
 
   logout() {

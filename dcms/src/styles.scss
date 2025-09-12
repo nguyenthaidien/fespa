@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.app-title {
+    font-weight: bold;
+    font-size: large;
+  }
+  .app-caption {
+    font-weight: lighter;
+    font-size: small;
+  }
+  .app-menutext {
+    font-weight:bold;
+    font-size:small;
+  }
+
+
+.light-theme {
+  --primary-color:  #009688;
+  --background-color: #fafafa;
+  --text-color: #424242;
+}
+
+.vnpt-theme {
+  --primary-color:  #1976d2;
+  --background-color: #f5f5f5;
+  --background-text-color: #1a1919de;
+  --text-color: #ffffff;
+}
+  // --primary-color:  #f5f5f5;
+  // --background-color: #1976d2;
+
+.dark-theme {
+  --primary-color: #003d6e;
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+/* .blue-theme {
+  --primary-color: #2196f3;
+  --background-color: #6ed7df;
+  --text-color: #0d47a1;
+} */
+.blue-theme {
+  --primary-color: #00bcd4;
+  --background-color: #e0f7fa;
+  --text-color: #0d47a1;
+}

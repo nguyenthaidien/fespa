@@ -3,12 +3,9 @@
   "app.title": "Translation Demo",
   "WELCOME": "Xin chao",
   "LANGUAGE": "Tiếng Việt",
-  "LOGOUT": "Đăng xuất",
-  "PROFILE": "Hồ sơ",
   "CHANGE_LANGUAGE": "Đổi ngôn ngữ",
   "CHANGE_THEME": "Đổi giao diện",
   "SITEMAP": "Sơ đồ trang",
   "BACKTOHOME": "Quay về trang chủ",
-  "toggleSidebar": "Mở ra/thu gọn thanh bên trái",
-  "VERSION": "Phiên bản"
+  "toggleSidebar": "Mở ra/thu gọn thanh bên trái"
 }

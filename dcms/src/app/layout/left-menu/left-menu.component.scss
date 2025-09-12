@@ -1,0 +1,117 @@
+/*GENERAL
+ */
+:host {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+/*BOX TEN CONG TY*/
+.company-name-box {
+  font-size: 18px;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+}
+.company-name {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 0px;
+}
+
+.line-name {
+  font-size: 12px;
+  opacity: 0.8;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+/*SEARCH BOX*/
+.search-box {
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  background-color: whitesmoke;
+  font-size: smaller;
+  height: 48;
+  flex-direction: column;
+}
+
+.search-field {
+  width: 100%;
+  font-size: small;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  height: 36px;
+  /*border: 1px solid #ccc;*/
+  box-sizing:content-box;
+}
+
+
+/**TOOLBAR & TREE NODE*/
+
+
+/*MENU*/
+
+.mattree-cdk-tree {
+  padding-top: 32px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.mat-tree-node {
+  min-height: 1.2em !important;
+  height: 1.2em !important;
+  line-height: 1.2em !important;
+  padding-bottom: 3px;
+  padding-left: 0px;
+  font-size: small;
+  background-color:var(--primary-color);
+  color: var(--text-color);
+}
+
+.app-menutext {
+  font-size: small;
+  text-decoration: auto;
+  color: var(--text-color);
+  font-weight: 500;
+  padding-left: 0px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+
+.sidebar-footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+}
+.logout-button{
+  width: flex;
+  padding-top: 0px;
+  height: fit-content;
+}
+.version-text{
+  font-size: smaller;
+  color: var(--text-color);
+  padding: 0px;
+}
+
+.theme-name{
+  font-size: smaller;
+  color: var(--text-color);
+  padding: 0px;
+}

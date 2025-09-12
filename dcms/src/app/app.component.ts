@@ -11,7 +11,7 @@ import { MatListModule } from '@angular/material/list';
 
 import { TranslateService } from "@ngx-translate/core";
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { RouterOutlet } from "@angular/router"; // Import MatSidenavModule
+
 
 
 
@@ -26,8 +26,7 @@ import { RouterOutlet } from "@angular/router"; // Import MatSidenavModule
     MatToolbarModule,
     MatButtonModule,
     MatTreeModule,
-    MatSidenavModule, MatListModule,
-    RouterOutlet
+    MatSidenavModule, MatListModule
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

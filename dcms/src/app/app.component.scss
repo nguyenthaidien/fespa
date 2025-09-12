@@ -1,0 +1,39 @@
+:host {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.dcms-container {
+  height: 100vh;
+  background-color: var(--background-color);
+}
+
+.mat-sidenav-content {
+  height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.dcms-sidenav {
+  width: 220px;
+  background-color: var(--primary-color);
+  padding-top: 0px;
+}
+.app-header {
+   flex: 1;
+  }
+
+
+.dcms-main {
+  padding: 8px;
+  min-height: calc(100vh - 120px); /* header + footer height */
+  background-color: var(--background-color);
+}
+
+.dcms-footer {
+  background-color: var(--primary-color);
+  text-align: center;
+  padding: 8px;
+
+}
+
